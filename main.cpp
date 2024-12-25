@@ -3,7 +3,7 @@
 
 int main() {
     auto* s = new Solution();
-    string test = "aacabdkacaa";
+    string test = "babad";
     cout<<s->longestPalindrome(test)<<endl;
     return 0;
 }

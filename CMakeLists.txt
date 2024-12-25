@@ -56,7 +56,6 @@ add_executable(leetcode
         stack/232.h
         Tree/105.h
         Tree/559.h
-        copy.h
         Tree/106.h
         math/2652.h
         Heap/2530.h
@@ -217,4 +216,5 @@ add_executable(leetcode
         dp/392.h
         dp/63.h
         dp/5.h
+        dp/64.h
 )
