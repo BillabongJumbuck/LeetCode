@@ -1,9 +1,9 @@
 #include <iostream>
-#include "dp/5.h"
-
+#include "dp/22.h"
+using std::cout;
+using std::endl;
 int main() {
     auto* s = new Solution();
-    string test = "babad";
-    cout<<s->longestPalindrome(test)<<endl;
+    s->generateParenthesis(4);
     return 0;
 }
