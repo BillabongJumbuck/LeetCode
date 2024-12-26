@@ -221,4 +221,10 @@ add_executable(leetcode
         dp/55.h
         dp/22.h
         string/3083.h
+        dp/45.h
+        dp/53.h
+        dp/72.h
+        dp/120.h
+        dp/931.h
+        dp/1289.h
 )
