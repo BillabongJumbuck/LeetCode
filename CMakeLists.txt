@@ -233,4 +233,7 @@ add_executable(leetcode
         dp/221.h
         array/3046.h
         dp/139.h
+        dp/1143.h
+        dp/300.h
+        dp/516.h
 )
