@@ -1,11 +1,12 @@
 #include <iostream>
-#include "dp/516.h"
+#include "heap/1366.h"
 using std::cout;
 using std::endl;
 using std::vector;
 int main() {
     auto* s = new Solution();
-
-    cout << s->longestPalindromeSubseq("bbbab") << endl;
+    vector<string> v = {"ABC","ACB","ABC","ACB","ACB"};
+    vector<string> v2 = {"ZMNAGUEDSJYLBOPHRQICWFXTVK"};
+    cout<< s->rankTeams(v2) << endl;
     return 0;
 }

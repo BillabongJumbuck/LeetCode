@@ -237,4 +237,9 @@ add_executable(leetcode
         dp/300.h
         dp/516.h
         dp/1035.h
+        Heap/1366.h
+        math/50.h
+        dp/322.h
+        homework_13_11.h
+        hw_13_17.h
 )
