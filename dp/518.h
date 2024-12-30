@@ -1,22 +1,22 @@
 //
-// Created by QinJM on 24-12-29.
+// Created by QinJM on 24-12-30.
 //
 
-#ifndef LEETCODE_322_H
-#define LEETCODE_322_H
-#include<vector>
-#include<algorithm>
+#ifndef LEETCODE_518_H
+#define LEETCODE_518_H
+#include <vector>
+#include <algorithm>
 using namespace std;
 class Solution {
 public:
-    int coinChange(vector<int>& coins, int amount) {
+    int change(int amount, vector<int>& coins) {
         std::sort(coins.begin(), coins.end());
         int n = coins.size();
         vector<vector<int>> dp(amount+1, vector<int>(n+1));
-        // i : amount j:coins
-        for(int i=0;i<amount+1;i++){
-            dp[i][0] = 1e9;
+        for(int j=0;j<n+1;j++){
+            dp[0][j] = 1;
         }
+        // i : amount j:coins
         for(int i=1;i<amount+1;i++){
             for(int j=1;j<n+1;j++){
                 int coin = coins[j-1];
@@ -25,14 +25,14 @@ public:
                     dp[i][j] = dp[i][j-1];
                 }else{
                     // 选coin
-                    int case1 = dp[i-coin][j] + 1;
+                    int case1 = dp[i-coin][j];
                     // 不选coin
                     int case2 = dp[i][j-1];
-                    dp[i][j] = min(case1, case2);
+                    dp[i][j] = case1 + case2;
                 }
             }
         }
-        return dp[amount][n] == 1e9 ?  -1  : dp[amount][n];
+        return dp[amount][n];
     }
 };
-#endif //LEETCODE_322_H
+#endif //LEETCODE_518_H

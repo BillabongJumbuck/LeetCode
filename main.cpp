@@ -1,12 +1,12 @@
 #include <iostream>
-#include "heap/1366.h"
+#include "dp/712.h"
+#include <vector>
+
 using std::cout;
 using std::endl;
 using std::vector;
 int main() {
     auto* s = new Solution();
-    vector<string> v = {"ABC","ACB","ABC","ACB","ACB"};
-    vector<string> v2 = {"ZMNAGUEDSJYLBOPHRQICWFXTVK"};
-    cout<< s->rankTeams(v2) << endl;
+    cout<< s->minimumDeleteSum("sea", "eat") << endl;
     return 0;
 }

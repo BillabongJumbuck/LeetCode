@@ -24,6 +24,7 @@ public:
         }
         return 0;
     }
+private:
     int getHeight(TreeNode* T){
         if(T){
             int HL, HR ,HM;
@@ -35,11 +36,7 @@ public:
         return 0;
     }
     int Max(int a,int b,int c){
-        if(a>b && a>c)
-            return a;
-        if(b>a && b>c)
-            return b;
-        return c;
+        return std::max(a, std::max(b, c));
     }
 };
 #endif //LEETCODE_543_H
