@@ -246,4 +246,7 @@ add_executable(leetcode
         Tree/1367.h
         dp/712.h
         dp/646.h
+        backtrace/39.h
+        backtrace/77.h
+        backtrace/78.h
 )
