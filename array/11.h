@@ -6,22 +6,22 @@
 #define LEETCODE_11_H
 #include <vector>
 using std::vector;
+using std::max;
+using std::min;
 class Solution {
-private:
-    inline int min(int a, int b){
-        return (a>b?b:a);
-    }
 public:
     int maxArea(vector<int>& height) {
-        int ans = 0;
-        for(int i=0;i<height.size();i++){
-            for(int j=i+1;j<height.size();j++){
-                int tmp = min(height[i],height[j]) * (j-i);
-                if(tmp > ans)
-                    ans = tmp;
-            }
+        int left = 0;
+        int right = height.size()-1;
+        int max_area = 0;
+        while(left<right){
+            max_area = max(max_area, min(height[left], height[right]) * (right-left));
+            if(height[left] < height[right])
+                left++;
+            else
+                right--;
         }
-        return ans;
+        return max_area;
     }
 };
 #endif //LEETCODE_11_H
