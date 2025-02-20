@@ -249,4 +249,8 @@ add_executable(leetcode
         backtrace/39.h
         backtrace/77.h
         backtrace/78.h
+        dp/1218.h
+        math/231.h
+        math/233.h
+        math/326.h
 )
