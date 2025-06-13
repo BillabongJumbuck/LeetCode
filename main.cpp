@@ -1,5 +1,5 @@
 #include <iostream>
-#include "stack/224.h"
+#include "Hash/2610.h"
 #include <vector>
 
 using std::cout;
@@ -7,6 +7,7 @@ using std::endl;
 using std::vector;
 int main() {
     auto* s = new Solution();
-    cout << s->calculate("-1-2") << endl;
+    vector<int> v = {1,3,4,1,2,3,1};
+    s->findMatrix(v);
     return 0;
 }

@@ -6,37 +6,37 @@
 #define LEETCODE_1114_H
 
 #include <functional>
-
+#include <semaphore.h>
 using namespace std;
 class Foo {
 private:
-    int a;
-    int b;
+    sem_t first_done;
+    sem_t second_done;
+    sem_t third_done;
 public:
     Foo() {
-        a = 0;
-        b = 0;
+        sem_init(&first_done, 0, 0);
+        sem_init(&second_done, 0, 0);
     }
 
     void first(function<void()> printFirst) {
-        a++;
+
         // printFirst() outputs "first". Do not change or remove this line.
         printFirst();
+        sem_post(&first_done);
     }
 
     void second(function<void()> printSecond) {
-        while(a!=1);
+        sem_wait(&first_done);
         // printSecond() outputs "second". Do not change or remove this line.
         printSecond();
-        a--;
-        b++;
+        sem_post(&second_done);
     }
 
     void third(function<void()> printThird) {
-        while(b!=1);
+        sem_wait(&second_done);
         // printThird() outputs "third". Do not change or remove this line.
         printThird();
-        b--;
     }
 };
 #endif //LEETCODE_1114_H

@@ -253,4 +253,12 @@ add_executable(leetcode
         math/231.h
         math/233.h
         math/326.h
+        math/2269.h
+        Hash/2610.h
+        array/2829.h
+        multithreading/1114_2.h
+        multithreading/1115.h
+        multithreading/1115_2.h
+        multithreading/1116.h
+        multithreading/1116_2.h
 )
