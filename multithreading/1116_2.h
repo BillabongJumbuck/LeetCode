@@ -15,8 +15,6 @@ private:
     int n;
     mutex mtx;
     condition_variable cv;
-    int count = 0;
-    bool flag = true;
     bool zero_turn = true;
     bool odd_turn = false;
     bool even_turn = false;
@@ -27,35 +25,25 @@ public:
 
     // printNumber(x) outputs "x", where x is an integer.
     void zero(function<void(int)> printNumber) {
-        while (true) {
+        for (int i = 1;i <= n;i++){
             unique_lock<mutex> lock(mtx);
-            cv.wait(lock, [this](){ return count >= n || zero_turn;});
-            if (count >= n){
-                cv.notify_all();
-                break;
-            }
+            cv.wait(lock, [this](){ return zero_turn;});
             printNumber(0);
-            if (flag){
+            if ((i & 1) == 1) {
                 odd_turn = true;
-            }else{
+            } else {
                 even_turn = true;
             }
-            flag = !flag;
             zero_turn = false;
             cv.notify_all();
         }
     }
 
     void even(function<void(int)> printNumber) {
-        while (true){
+        for(int i = 2;i <= n;i += 2) {
             unique_lock<mutex> lock(mtx);
-            cv.wait(lock, [this](){return count >= n || even_turn;});
-            if (count >= n){
-                cv.notify_all();
-                break;
-            }
-            count ++;
-            printNumber(count);
+            cv.wait(lock, [this](){return even_turn;});
+            printNumber(i);
             even_turn = false;
             zero_turn = true;
             cv.notify_all();
@@ -63,15 +51,10 @@ public:
     }
 
     void odd(function<void(int)> printNumber) {
-        while (true){
+        for(int i = 1;i <= n;i += 2) {
             unique_lock<mutex> lock(mtx);
-            cv.wait(lock, [this](){return count >= n || odd_turn;});
-            if (count >= n){
-                cv.notify_all();
-                break;
-            }
-            count ++;
-            printNumber(count);
+            cv.wait(lock, [this](){return odd_turn;});
+            printNumber(i);
             odd_turn = false;
             zero_turn = true;
             cv.notify_all();
